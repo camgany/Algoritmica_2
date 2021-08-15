@@ -44,30 +44,7 @@ bool searchWord(string word) {   // alto
     }
     cout<<currentNode->currentCharacter<<endl;
     return currentNode->isWord;
-}
-
-
-/*
-int findWords(string prefix) {   // alto 
-    node *currentNode =  trie;  
-    for (int i = 0; i< prefix.length(); i++) {
-        int character = prefix[i] - 'a';       // i = 0 'a'-'a' = 0
-        if(currentNode->children[character] == NULL ) {
-           return 0;
-        }
-        currentNode = currentNode->children[character];
-    }
-    return currentNode->countWords;
-}*/
-/*
-void showTrie(node currentNode ) {
-    node *currentNode =  trie;  
-    for (int i =0; i< 27; i++) {
-        currentNode = currentCharacter = word[i];
-        cout (char(i+'a'));
-        showTrie(currentNode)
-    }
-}*/ 
+} 
 
 
 void isThereWord(string word) {
