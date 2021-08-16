@@ -2,35 +2,35 @@
 
 using namespace std; 
 
-struct node {
-    char currentCharacter;       
-    bool isWord;
-   //  int priority = 0;            
-    struct node *children[27];  // [null,null,null,......,null]
+struct node {// creamos un nodo del tamano sdel abecedario
+    char currentCharacter;  //caracter actual      
+    bool isWord;//variable que diga si es una palabra o no es una palabra
+   //  int priority = 0;  //cuantas palabras empiezan con ese prefijo          
+    struct node *children[27];  // [null,null,null,......,null] primer nodo donde todo va a estar nulo array de nodos
     node() {
         isWord = false;
-    }
-}*trie; 
-
+    }//hasta ahi creamos una estructura
+}*trie; // referencia es el asterisgo, estamos apuntando al nodo de referencia
+// lo que estamos haciendo es crear una variable
 // Inicializar 
 
 void init() {
-    trie = new node();  // Instanciar el objeto trie
+    trie = new node();  // Instanciar el objeto trie inicializamos el arbol y crea todo eso
 }
 
 void insertWord(string word) {   // alba 
-    node *currentNode =  trie;  
-    for (int i = 0; i< word.length(); i++) { // alba
-        int character = word[i] - 'a';       // i = 0 'a'-'a' = 0
-        if(currentNode->children[character] == NULL ) {
-            currentNode->children[character] = new node();
+    node *currentNode =  trie;  //jalamos el puntero y lo colocamos en el nodo trie*(nodo cero)
+    for (int i = 0; i< word.length(); i++) { // alba// se pregunta que si existe la palabra 
+        int character = word[i] - 'a';       // i = 0 'a'-'a' = 0 posicion de la palabra a que da 0
+        if(currentNode->children[character] == NULL ) {//en trie andate a los hijos y en la posicion 0 dime si hay un nodo o es nulo
+            currentNode->children[character] = new node();// si es nulo en esa posicion crea un nodo
            // currentNode->isWord = false;
         }
       //   currentNode = max(currentNode->priority,priority);
-        currentNode = currentNode->children[character];
-        currentNode->currentCharacter = word[i];
+        currentNode = currentNode->children[character];//cambiamos el puntero y ahora el puntero sera el que hemos creado
+        currentNode->currentCharacter = word[i];// le estamos poniendo el caracter, que es, le ponemos el nodo, le decimos esto es a
     }
-    currentNode->isWord = true;
+    currentNode->isWord = true;//una vez que termina con todo eso  pone que la ultima letra es final de palabra
 }
 
 bool searchWord(string word) {   // alto 
@@ -41,33 +41,25 @@ bool searchWord(string word) {   // alto
            return false;
         }
         currentNode = currentNode->children[character];
+         cout<<currentNode->currentCharacter<<endl;
     }
-    cout<<currentNode->currentCharacter<<endl;
     return currentNode->isWord;
 }
-
-
-/*
-int findWords(string prefix) {   // alto 
-    node *currentNode =  trie;  
-    for (int i = 0; i< prefix.length(); i++) {
-        int character = prefix[i] - 'a';       // i = 0 'a'-'a' = 0
-        if(currentNode->children[character] == NULL ) {
-           return 0;
+ 
+bool deleteWord(string word) {   // colocamos la palabra a eliminar
+    node *currentNode =  trie;  // colocamos el puntero en la cabeza, el nodo vacio del trie
+for (int i = 0; i< word.length(); i++) {//creamos un for para recorrer la palabra
+        int character = word[i] - 'a';       // i = 0 'a'-'a' = 0 creamos una variable que sera la posicion que estara en el array
+        if(currentNode->children[character] == NULL ) {//vemos si los hijos del nodo que estamos estan nulos
+           return false;// si es asi retornamos falso
         }
-        currentNode = currentNode->children[character];
+        currentNode = currentNode->children[character];//creamos un nodo en el hijo de la posicion indicada
+         cout<<currentNode->currentCharacter<<endl;//imprimimos el caracter que esta
     }
-    return currentNode->countWords;
-}*/
-/*
-void showTrie(node currentNode ) {
-    node *currentNode =  trie;  
-    for (int i =0; i< 27; i++) {
-        currentNode = currentCharacter = word[i];
-        cout (char(i+'a'));
-        showTrie(currentNode)
-    }
-}*/ 
+    return currentNode->isWord=false;//colocamos que el final de la palabra estara en falso
+    }   
+  
+ 
 
 
 void isThereWord(string word) {
@@ -78,16 +70,31 @@ void isThereWord(string word) {
     }
 }
 
+void removeWord(string word){
+if(searchWord(word)){
+if(!deleteWord(word)){
+cout<<"Se elimino la palabra con exito"<<endl;
+}else {
+   cout<<"No se elimino la palabra con exito"<<endl; 
+}
+}
+}
 int main() {
 
     // Inicializar Trie
     init();  
-    string word = "auto";
+    /*string word = "auto";
     insertWord(word);
     isThereWord(word);
     word = "automovil";   
     insertWord(word);
     isThereWord("auto");
     isThereWord(word);
+    insertWord("autofe");
+    insertWord("autoqe");
+    deleteWord("auto");*/
+    insertWord("auo");
+    //searchWord("auo");
+    removeWord("auo");
     return 0;
 }
