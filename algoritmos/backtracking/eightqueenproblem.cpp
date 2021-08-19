@@ -1,53 +1,51 @@
 #include <bits/stdc++.h> 
 
 using namespace std; 
-
-bool isValid(int tablero [8][8], int row, int column){
-   for (int i=0;i<8;i++){//verificamos si no hay otra reyna a lo horizontal
-       if(tablero[i][column]==1){
-           return false;
-       }else{
-           return true;
-       }
-   }
-   for (int i=0;i<8;i++){
-       if(tablero[row][i]==1){//verificamos si no hay otra reyna a lo vertical
-           return false;
-       }else{
-           return true;
-       }
-   }
-   for (int i=0;i<8-column;i++){//verificamos de forma diagonal
-       if(tablero[row-i][column]==1||tablero[row+i][column]==1||tablero[row][column-i]==1||tablero[row][column+i]==1){
-           return false;
-       }else{
-           return true;
-       }
-   }
-   
+bool es_valido(int tablero[] [],int fila, int columna){//le damos un tablero y le ponemos en una fila y columna para poner una reina
+//comprobamos que no existan reinas en la misma fila
+for(int col =0; col<4;col++){//ninguna columna de la fila que estoy poniendo haya alguna reina
+if(tablero[fila][col]==1){
+return false;
 }
-int solve8queen(int total, int tablero[8][8],int fila, int columna){
-    if(!isValid(tablero,fila,columna)){
-        return ;
-    }
-    if(total==8){
-        for(int col = 0; col<8;col++){
-            for(int row = 0; row<8;row++){
-            cout<<"[" << tablero[col][row]<< "]";
+
+}
+//comprobamos diagonales izquierda superior
+int row = fila, col = columna;
+while(row>0 && col > 0){
+if(tablero[row][col]==1);
+row--;
+col--;
+}
+//comprobamos diagonales izquierda inferior
+int row = fila, col = columna;
+while(row < 4 && col > 0){
+if(tablero[row][col]==1);
+row++;
+col--;
+}
+}
+void solve_queen(int columna, int tablero [][]){//pseudocodigo le mandamos la columna, el tablero, 
+if (columna >= 4 ){//verificamos si ya pusieron todas las reinas //CASO BASE
+print_solucion(tablero);//imprimira le tablero
+}
+for(int row = 0; row < 4; row++){//empezamos desde la fila cero
+  if(es_valido(tablero, row, columna)){//verificamos si podemos poner ahi una reina //PODA
+      tablero[row][columna]=1;//ponemos la reina
+      solve_queen(columna+1,tablero);//llamamos con recursividad para poner mas reinas
+      tablero[row][columna] = 0;//creamos un nuevo tablero y copiamos exactamente como esta
+      //borramos la reina que no funciona
+  }  
+}
+//SI COLOCAMOS ++ O -- PUEDE ENTRAR EN UN BUCLE INFINITO
+}
+void print_solucion(int tablero[][]){
+    for(int fila = 0; fila < 4; fila++){
+        for(int col = 0; col < 4; col++){
+            printf("[%d]",tablero[fila][col]);
         }
-        cout<<endl;
-        }       
+        printf("\n");
     }
-    for(int row=0;row<8;row++){
-        for(int col=0;col<8;col++){
-            if(tablero[row][col]==0){
-                tablero[row][col]=1;
-                if(isValid(tablero,fila,columna)){
-                    solve8queen(total+1,tablero,fila,columna);
-                }else{
-                    tablero[row][col]=0;
-                }
-            }
-        }
-    }
+}
+int main(){
+
 }
