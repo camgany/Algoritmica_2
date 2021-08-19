@@ -53,19 +53,6 @@ bool searchWord(string word) {   // alto
     return currentNode->isWord;
 }
  
-bool deleteWord(string word) {   // colocamos la palabra a eliminar
-    node *currentNode =  trie;  // colocamos el puntero en la cabeza, el nodo vacio del trie
-for (int i = 0; i< word.length(); i++) {//creamos un for para recorrer la palabra
-        int character = word[i] - '0';       // i = 0 'a'-'a' = 0 creamos una variable que sera la posicion que estara en el array
-        if(currentNode->children[character] == NULL ) {//vemos si los hijos del nodo que estamos estan nulos
-           return false;// si es asi retornamos falso
-        }
-        currentNode = currentNode->children[character];//creamos un nodo en el hijo de la posicion indicada
-         cout<<currentNode->currentCharacter<<endl;//imprimimos el caracter que esta
-    }
-    return currentNode->isWord=false;//colocamos que el final de la palabra estara en falso
-    }   
-  
  
 
 
@@ -77,32 +64,13 @@ void isThereWord(string word) {
     }
 }
 
-void removeWord(string word){
-if(searchWord(word)){
-if(!deleteWord(word)){
-cout<<"Se elimino la palabra con exito"<<endl;
-}else {
-   cout<<"No se elimino la palabra con exito"<<endl; 
-}
-}
-}
+
 int main() {
 
     // Inicializar Trie
     init();  
-    /*string word = "auto";
-    insertWord(word);
-    isThereWord(word);
-    word = "automovil";   
-    insertWord(word);
-    isThereWord("auto");
-    isThereWord(word);
-    insertWord("autofe");
-    insertWord("autoqe");
-    deleteWord("auto");*/
     insertWord("911");
     insertWord("91178");
-    //searchWord("auo");
     isThereWord("911");
     return 0;
 }
