@@ -1,12 +1,40 @@
-[0] [1] [2] 
-[1] [1] [1] 
-[1] [4201145] [0] 
-0
-[0] [1] [2] 
-[1] [1] [1] 
-[1] [4201144] [0] 
-0
-[0] [1] [2] 
-[1] [1] [1] 
-[1] [4201143] [0] 
-0
+NO
+NO
+YES
+NO
+NO
+NO
+NO
+NO
+NO
+NO
+NO
+NO
+YES
+NO
+NO
+NO
+NO
+NO
+NO
+NO
+YES
+NO
+YES
+NO
+NO
+NO
+YES
+NO
+YES
+NO
+NO
+NO
+NO
+YES
+NO
+NO
+YES
+YES
+NO
+NO
