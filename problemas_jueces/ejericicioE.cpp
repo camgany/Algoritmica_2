@@ -18,18 +18,14 @@ struct node {// creamos un nodo del tamano sdel abecedario
 void init() {
     trie = new node();  // Instanciar el objeto trie inicializamos el arbol y crea todo eso
     for(int i=0;i<10;i++){
-        cout<<trie->children[i]<<endl;
     }
 }
 
 void insertWord(string word) {   // alba 
-cout<<"by"<<endl;
     node *currentNode =  trie;  //jalamos el puntero y lo colocamos en el nodo trie*(nodo cero)
     for (int i = 0; i< word.length(); i++) { // alba// se pregunta que si existe la palabra 
         int character = word[i] - '0';       // i = 0 'a'-'a' = 0 posicion de la palabra a que da 0
-        cout<<(currentNode->children[character]==NULL)<<endl;
         if(currentNode->children[character] == NULL ) {//en trie andate a los hijos y en la posicion 0 dime si hay un nodo o es nulo
-            cout<<"hi"<<endl;
             currentNode->children[character] = new node();// si es nulo en esa posicion crea un nodo
             currentNode->isWord = false;
         }
@@ -38,7 +34,6 @@ cout<<"by"<<endl;
         currentNode->currentCharacter = word[i];// le estamos poniendo el caracter, que es, le ponemos el nodo, le decimos esto es a
     }
     currentNode->isWord = true;//una vez que termina con todo eso  pone que la ultima letra es final de palabra
-cout<<"bye"<<endl;
 }
 
 bool searchWord(string word) {   // alto 
@@ -51,74 +46,62 @@ bool searchWord(string word) {   // alto
       
         currentNode = currentNode->children[character];
         
-         cout<<currentNode->currentCharacter<<endl;
+         //cout<<currentNode->currentCharacter<<endl;
     }
      //cout<<currentNode->currentCharacter<<endl;
-    for (int i = 0; i<=sizeof(currentNode->children);i++){
-        if(currentNode->children[i]==NULL){   
-            currentNode->isWord = true;
-        }else{
-            currentNode->isWord = false;
-
+     int contador=10;
+    for (int i = 0; i<=10;i++){
+        if(currentNode->children[i]!=NULL){   
+            //currentNode->isWord = true;
+            contador--;
+            return currentNode->isWord = false;
         }
         
     }
      
-    return currentNode->isWord;
+    return currentNode->isWord=true;
 }
  
- void isThereWord(string word) {
-     cout<<"dfsd"<<endl;
-    if(searchWord(word)) {
-        cout<<"si existe : "<<word<<" en el trie"<<endl;
-    } else {
-        cout<<"No Existe :P"<<endl;
-    }
-}
+
+ 
 
 
 int main() {
     input;
     output;
-    init();
-    cout<<"hola"<<endl;  
-    insertWord("911");
-    insertWord("91178");
-    isThereWord("911");
-    string palabra;
-    cin>>palabra;
-    cout<<palabra<<endl;
-    /*int cases;
-    cin >> cases;  
+
+    int cases;
+    cin>>cases;
     while(cases>0){
-         init(); 
-        int problems;
-        cin >> problems;
-        int a = problems;
-        int numberCases=0;
-         string palabras[problems]; 
-        while(a > 0){ 
-            string word;
-            cin>> word;
-             insertWord(word);
-             palabras[numberCases]=word;
-             numberCases++; 
-          a--;
-         }
-         int contador = 0;
-         for(int i = 0; i<problems;i++){
-             if(searchWord(palabras[i])){
-                 contador++;
-             }
-         }
-         if (contador==problems){
-          cout<<"YES"<<endl; 
-         }else{
-             cout<<"NO"<<endl;  
-         }
-     
-     cases--;
-     }*/
+            init();
+            int numbers;
+            cin>>numbers;
+            int b = numbers;
+            string palabra;
+            string word[numbers];
+            int a=0;
+            while(b>0){ 
+                 cin>>palabra;
+                 insertWord(palabra);
+                 word[a]=palabra;
+                 a++;
+             b--;   
+            }
+            int contador = 0;
+            for(int i=0;i<numbers;i++){
+                   if(searchWord(word[i])) {
+                       contador++;
+                     }
+                word->clear();
+              }
+            if(contador==numbers){
+                cout<<"YES"<<endl;
+            }else{
+                cout<<"NO"<<endl;
+            }
+       cases--;    
+    }
+    
     return 0;
     
     }
