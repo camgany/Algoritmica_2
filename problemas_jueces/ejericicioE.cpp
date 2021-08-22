@@ -1,15 +1,20 @@
 #include <bits/stdc++.h> 
-#define input freopen("in.txt", "r", stdin)
-#define output freopen("out.txt", "w", stdout)
+//#define input freopen("in.txt", "r", stdin)
+//#define output freopen("out.txt", "w", stdout)
 using namespace std; 
 int contador;
 struct node {// creamos un nodo del tamano sdel abecedario
     char currentCharacter;  //caracter actual      
     bool isWord;//variable que diga si es una palabra o no es una palabra
    //  int priority = 0;  //cuantas palabras empiezan con ese prefijo          
+    int contador;
     struct node *children[10];  // [null,null,null,......,null] primer nodo donde todo va a estar nulo array de nodos
     //node() {
+    //    contador=0;
     //    isWord = false;
+    //    for(int i=0;i<20;i++)
+    //        children[i]=NULL;
+    //}
     //}//hasta ahi creamos una estructura
 }*trie; // referencia es el asterisgo, estamos apuntando al nodo de referencia
 // lo que estamos haciendo es crear una variable
@@ -17,28 +22,34 @@ struct node {// creamos un nodo del tamano sdel abecedario
 
 void init() {    
 trie = new node();  // Instanciar el objeto trie inicializamos el arbol y crea todo eso
-contador = 0;
+trie->contador=0;
 }
 
-void insertWord(string word) {   // alba 
+bool insertWord(string word) {   // alba 
     node *currentNode =  trie;  //jalamos el puntero y lo colocamos en el nodo trie*(nodo cero)
     for (int i = 0; i< word.length(); i++) { // alba// se pregunta que si existe la palabra 
         int character = word[i] - '0';       // i = 0 'a'-'a' = 0 posicion de la palabra a que da 0
         if(currentNode->children[character] == NULL ) {//en trie andate a los hijos y en la posicion 0 dime si hay un nodo o es nulo
             currentNode->children[character] = new node();// si es nulo en esa posicion crea un nodo
+            currentNode->contador=0;
             currentNode->isWord = false;
         }
+        currentNode = currentNode->children[character];
+        if(currentNode->isWord==true){
+            return true;
+            
+        }
+        currentNode->contador++;
       //   currentNode = max(currentNode->priority,priority);
-        currentNode = currentNode->children[character];//cambiamos el puntero y ahora el puntero sera el que hemos creado
+        //currentNode = currentNode->children[character];//cambiamos el puntero y ahora el puntero sera el que hemos creado
         currentNode->currentCharacter = word[i];// le estamos poniendo el caracter, que es, le ponemos el nodo, le decimos esto es a
-       if(currentNode->isWord){
-            contador++;
-        }
-        if(word.length()==1){
-            contador++;
-        }
     }
     currentNode->isWord = true;//una vez que termina con todo eso  pone que la ultima letra es final de palabra
+     if(currentNode->contador>1){
+         return false;
+     }
+     return true;
+
 }
 
 /*bool searchWord(string word) {   // alto 
@@ -65,52 +76,43 @@ void insertWord(string word) {   // alba
     return currentNode->isWord=true;
 }*/
  
-
+void del(node *currentNode=trie)
+{
+    for(int i=0;i<20;i++)
+    {
+        if(currentNode->children[i]!=NULL)
+        {
+            del(currentNode->children[i]);
+        }
+    }
+    delete(currentNode);
+}
  
 
 
 int main() {
-    input;
-    output;
+    //input;
+   // output;
 
-    int cases;
+    int cases,id,number,i,k;
+    bool flag;
+    string word;
     cin>>cases;
-    while(cases>0){
-            init();
-            int numbers;
-            cin>>numbers;
-            string palabra;
-            //string word[numbers];
-            int a=numbers;
-            while(a>0){ 
-                 cin>>palabra;
-                 insertWord(palabra);
-                // word[a]=palabra;
-             a--;   
-            }
-            /*int contador = 0;
-            for(int i=0;i<numbers;i++){
-                   if(searchWord(word[i])) {
-                       contador++;
-                     }
-                word->clear();
-              }
-            if(contador==numbers){
-                cout<<"YES"<<endl;
-            }else{
-                cout<<"NO"<<endl;
-            }*/
-            if(numbers==1){
-                contador=0;
-            }
-            if(contador==0){
-              cout<<"YES"<<endl;
-            }else{
-                cout<<"NO"<<endl;  
-            }
-       cases--;    
+    while(cases--)
+    {
+        init();
+        flag=true;
+        cin>>number;
+        while(number--)
+        {
+            cin>>word;
+            if(flag)
+                flag=insertWord(word);
+        }
+        if(!flag)
+            cout<<"NO\n";
+        else
+            cout<<"YES\n";
+        del();
     }
-    
-    return 0;
-    
-    }
+}
