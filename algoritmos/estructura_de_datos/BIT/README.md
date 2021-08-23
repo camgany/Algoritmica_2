@@ -21,5 +21,4 @@ El árbol indexado binario se representa como una matriz. Deje que la matriz sea
 La idea se basa en el hecho de que todos los enteros positivos se pueden representar como la suma de potencias de 2. Por ejemplo, 19 se puede representar como 16 + 2 + 1. Cada nodo del BITree almacena la suma de n elementos donde n es un potencia de 2. Por ejemplo, en el primer diagrama anterior (el diagrama para getSum ()), la suma de los primeros 12 elementos se puede obtener mediante la suma de los últimos 4 elementos (de 9 a 12) más la suma de 8 elementos (de 1 a 8). El número de bits establecidos en la representación binaria de un número n es O (Logn). Por lo tanto, atravesamos como máximo los nodos O (Logn) en las operaciones getSum () y update (). La complejidad temporal de la construcción es O (nLogn), ya que llama a update () para todos los n elementos. 
 
 ## Código base
--  [BIT](BIT.java) - _Java/T_
 -  [BIT](bit.cpp) - _C++_
