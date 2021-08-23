@@ -7,7 +7,7 @@ Buscar: determina en qué subconjunto se encuentra un elemento en particular. Es
 
 Unión: une dos subconjuntos en un solo subconjunto.
 
-![Union find](https://i1.wp.com/www.mathblog.dk/files/2012/06/disjointset_graphexample1.png?ssl=1)
+![Union find](https://helloacm.com/wp-images/acm/2012/data-structure/disjoint2.jpg)
 
 El algoritmo Union-Find se puede usar para verificar si un gráfico no dirigido contiene ciclo o no. Tenga en cuenta que hemos discutido un algoritmo para detectar ciclos . Este es otro método basado en Union-Find . Este método asume que el gráfico no contiene bucles propios. 
 
