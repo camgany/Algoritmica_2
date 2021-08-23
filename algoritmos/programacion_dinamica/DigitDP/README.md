@@ -1,27 +1,14 @@
-# Digit
+# Digit DP
 
-**Digit DP** es una técnica sencilla y útil para resolver distintos problemas de **Programación Dinámica**;</br>
-como indica su nombre **“Digit DP”** trabaja con dígitos.</br>
-Existen varios tipos de problemas que pueden ser resueltos implementando **Digit DP**,en especial aquellos que </br>
-piden contar el número de enteros _**"x"**_ entre dos enteros, digamos que _**"a"**_ y _**"b"**_ de manera que </br>
-x satisfaga una propiedad específica que puede relacionarse con sus dígitos.</br>
+La programación dinámica es un método popular de programación de computadoras que se enfoca en resolver un problema dado resolviendo sus subproblemas utilizando las condiciones base y la memorización adecuadas. Hay varios problemas de DP en Internet. Digit DP es una de esas técnicas. En esto, la solución se hace jugando con los dígitos. Consideramos los números como cadenas y agregamos todos los dígitos posibles que pueden estar allí en cualquier posición y hacemos nuevos números de esta manera. Esto puede entenderse con una de esas declaraciones de problemas.
  
-![Dividir los problemas en subproblemas](https://github.com/AleS900/prueba/blob/master/assets/digit.png)
+![DigitDP](https://saisumit.files.wordpress.com/2016/11/pic.png?w=1040)
 </br>
 
+Digit Dp es un paradigma muy sencillo pero muy elegante y bastante visible en Programación Competitiva. 
 
+Además, como sugiere el nombre, se trata de DP que involucra números en los que desea ciertas especificaciones para un número: P Muchas veces también existe una solución combinatoria para tales problemas, que es más difícil de pensar.
 ## Algoritmo Base
 ### Código
--  [Digit DP](https://github.com/PaulLandaeta/algoritmica2/blob/master/contenido/Programacion%20Dinamica/Digit/DigitDP.java) - _Java_
--  [Digit DP](https://github.com/PaulLandaeta/algoritmica2/blob/master/contenido/Programacion%20Dinamica/Digit/digit.cpp) - _C++_
-#### Entrada de Prueba
--  [Digit DP - input](https://github.com/PaulLandaeta/algoritmica2/blob/master/contenido/Programacion%20Dinamica/Digit/digit.cpp)
+-  [Digit DP](https://github.com/camgany/Algoritmica_2/tree/main/algoritmos/programacion_dinamica/DigitDP)
 
-## Referencias
-### Sitios Web 
--  [Introducción a Digit DP](https://medium.com/@sim017bawkar/introduction-to-digit-dp-40f0e6c9a77d) - _Medium_
--  [Digit Dynamic Programming](https://medium.com/@sachinhegde0411/digit-dynamic-programming-c526dbfcbd74) - _Medium_
--  [Explicación: Digit DP](https://codeforces.com/blog/entry/53960) - _CodeForces_
-### Medios Audivisuales
--  [Explicación Código: Digit DP (eng)](https://www.youtube.com/watch?v=5ag4kmHVs8k)
--  [Explicación Funcionamiento + Ejemplo: Digit DP (eng)](https://www.youtube.com/watch?v=cZV7HZhbGQI)
