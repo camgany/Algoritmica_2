@@ -17,6 +17,5 @@ Esta técnica consiste básicamente en :
 
 ## Código base
 ### 8 queens
--  [8queens](8queen.cpp) - _C++_
-### Sudoku
--  [Sudoku](sudoku.cpp) - _C++_
+-  [8queens](https://github.com/camgany/Algoritmica_2/blob/main/algoritmos/backtracking/ejercicios/8queen.cpp) - _C++_
+
