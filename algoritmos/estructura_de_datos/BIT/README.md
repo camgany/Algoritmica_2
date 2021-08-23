@@ -5,7 +5,7 @@ Algunas ventajas sobre el Segment tree son el espacio, ya que utiliza mucho meno
 
 El árbol indexado binario se representa como una matriz. Deje que la matriz sea BITree []. Cada nodo del árbol indexado binario almacena la suma de algunos elementos de la matriz de entrada. El tamaño del árbol indexado binario es igual al tamaño de la matriz de entrada, denotado como n. En el siguiente código, usamos un tamaño de n + 1 para facilitar la implementación.
 
-![BIT](https://media.geeksforgeeks.org/wp-content/cdn-uploads/BITSum.pngs/bitval.gif)
+![BIT](https://www.codingninjas.com/blog/wp-content/uploads/2020/09/image-140.png)
 
 ##Operaciones
 
@@ -14,7 +14,7 @@ El árbol indexado binario se representa como una matriz. Deje que la matriz sea
 
 - update (x, val): actualiza el árbol indexado binario (BIT) realizando arr [index] + = val 
 
-![BIT](![image](https://user-images.githubusercontent.com/84194948/130463408-1d80e795-27eb-4ea1-a018-ba7129584d5f.png))
+![BIT](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5stmJrtxIw7u4w3ttRxBT0kE-nJZJKiFhOUQl-pKRwnMw6EpQCsyFKtTEH_ykf53sOGQ&usqp=CAU)
 
 ## La idea detrás del BIT
 
