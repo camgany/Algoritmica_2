@@ -1,21 +1,18 @@
-# Segment Tree
-In computer science, a segment tree, also known as a statistic tree, is a tree data structure used for storing information about intervals, or segments. It allows querying which of the stored segments contain a given point.
-En ciencias de la computación, un segment tree, es una estructura de datos en la que se almacena información sobre intervalos o segmentos. Nos permite realizar consultas y actualizaciones en tiempo logarítmico, por lo que la estructura es muy útil.
-![Segment Tree](https://media.geeksforgeeks.org/wp-content/cdn-uploads/segment-tree1.png)
-## Código base
--  [Segment Tree](SegmentTree.java) - _Java/T_
--  [Segment Tree](segmentTree.cpp) - _C++_
+# Rod Cutting
+Dado que la programación dinámica es principalmente una recursividad de optimización sobre simple, podemos usarla para optimizar el algoritmo de tiempo exponencial.
 
-## Problemas
--  [Interval Product](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=441&page=show_problem&problem=3977)
--  [Solution Interval Product](problems)
--  [Frequent values](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2176)
--  [Codeforces list](https://codeforces.com/blog/entry/22616) 
-## Entradas de prueba 
--  [In](in.txt)
-## Referencias 
--  [Efficient and easy segment trees](https://codeforces.com/blog/entry/18051)
-## Videos
--  [Episode 4 - Segment Trees](https://www.youtube.com/watch?v=Tr-xEGoByFQ)
--  [Sum of given range](https://www.youtube.com/watch?v=2bSS8rtFym4)
--  [AlgorithmsThread 3: Segment Trees](https://www.youtube.com/watch?v=QvgpIX4_vyA)
+El corte de varillas es otro tipo de problema que se puede resolver sin utilizar un enfoque de programación dinámica , pero podemos optimizarlo en gran medida usándolo. Según el problema, contamos con una varilla larga de longitud r norte unidades. Podemos cortar la varilla en diferentes tamaños y cada tamaño tiene un costo diferente asociado, es decir, una varilla de I unidades de longitud tendrá un costo de C 1$ . Veamos la tabla que se muestra a continuación que muestra el costo en función de la longitud de la varilla.
+
+![Rod Cutting](https://www.codesdope.com/staticroot/images/algorithm/rod1.png)
+
+En la tabla anterior, puede ver que la varilla de longitud 1 unidad tiene un precio de 10 $ y una varilla de longitud 2 tiene un precio de 24 $ , etc. Ahora, nuestra tarea es generar las piezas de la varilla en tal una forma en que los ingresos generados por la venta de todas las piezas sean máximos (digamos que estos ingresos máximos son r norte para una varilla de longitud n unidades).
+
+Tomemos un caso en el que nuestra varilla tiene 4 unidades de largo, entonces tenemos las siguientes formas diferentes de cortarla:
+
+![Rod Cutting](https://www.codesdope.com/staticroot/images/algorithm/rod2.png)
+Así, puedes ver que para una caña de 4 unidades de largo, cortarla en dos piezas de 2 unidades de largo genera el máximo beneficio para nosotros.
+
+Nuestra tarea es encontrar el valor de rnorte (ingreso máximo que se puede generar a partir de una barra de longitud n unidades).
+## Código base
+-  [Segment Tree](https://github.com/camgany/Algoritmica_2/blob/main/algoritmos/programacion_dinamica/RodCutting/rod_cutting.cpp) - _C++_
+
