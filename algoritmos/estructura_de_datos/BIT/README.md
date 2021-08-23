@@ -3,6 +3,8 @@ Un árbol de Fenwick o un BIT (Binary indexed tree) es una estructura de datos q
 
 Esta estructura fue propuesta por Boris Ryabko en 1989 [1] con una modificación adicional publicada en 1992. [2] Posteriormente se conoció con el nombre de árbol de Fenwick en honor a Peter Fenwick , quien describió esta estructura en su artículo de 1994. 
 ![BIT](https://he-s3.s3.amazonaws.com/media/uploads/68f2369.jpg)
+La imagen de arriba muestra el árbol indexado binario, cada cuadro adjunto del cual denota el valor BIT [índice] y cada BIT [índice] almacena la suma parcial de algunos números.
+
 Algunas ventajas sobre el Segment tree son el espacio, ya que utiliza mucho menos y además es una estructura de datos más fácil de implementar. Sin embargo, es algo complejo de entender.
 Los árboles de Fenwick están especialmente diseñados para implementar el algoritmo de codificación aritmética , que mantiene los recuentos de cada símbolo producido y necesita convertirlos a la probabilidad acumulativa de un símbolo menor que un símbolo dado. En ese caso, el desarrollo de las operaciones que soporta fue motivado principalmente por el uso.
 
