@@ -1,51 +1,65 @@
-#include <bits/stdc++.h> 
-#define input freopen("in.txt", "r", stdin)
-#define output freopen("out.txt", "w", stdout)
+#include <bits/stdc++.h>
 using namespace std;
 
 int BIT[10001];
 int tamanhoVector;
 
-void update(int posicion, int valor ) {
-    for(;posicion <= tamanhoVector ;posicion += posicion&-posicion) {
-        BIT[posicion] *= valor;
-    }
+void update(int posicion, int valor ) { //Sirve para ya sea poder crear o actualizar el BIT, nos pasan las posiciones y los valores de la siguiente manera:
+    // valores = [4,6,3,2,5]
+    // posiciones = [1,2,3,4,5], ya que la posicion 0 esta reservada para el nodo fantasma
+    for(;posicion <= tamanhoVector ;posicion += posicion&-posicion) { //Empezamos en la posicion del valor actual (se van cambiando los valores en el main)
+                                                                      //Posteriormente, en esa posicion, añadimos el valor corresponidiente.
+        BIT[posicion] += valor;                                       //La posicion del BIT donde se guardan los valores, va cambiando, ya que se le suna a la posicion, su bit menos significativo
+    }                                                                 //Cada uno de los numeros que representan las posiciones, se ven representados en el dibujo como las rayas
 }
-// [2,3,7,1,5]
-//  0 1 2 3 4
-// BIT[0,2,5,7,13,5]; // voy agregar el nodo fantasma
 
-int query(int posicion){ // F(3)
+int query(int posicion){ // F(x) = 0+....+x                       //En el query,queremos desde 0 hasta posicion
+
     int result = 0 ;
-    for(;posicion > 0 ;posicion -= posicion&-posicion) {
-        result *= BIT[posicion];
+
+    for(;posicion > 0 ;posicion -= posicion&-posicion) {        //Partimos desde la posicion, es decir, desde el numero mas alto, y desde ahi, le vamos quitando su bit menos significativo, hasta llegar al nodo fantasma
+        //Esto es asi, ya que, hay que recordar que la posicion del padre de un nodo equivale a PosicionPadre = PosicionHijo - BMS(PosicionHijo)
+        result += BIT[posicion];
+
     }
-    return result; 
+    return result;//devolvemos en el resultado a la suma de que haya
 }
-// query (ini,fin)
-// query (2,5)
+
 int query2(int inicio, int final) {
-    // query (5) - query(2-1)
-    // query (5) - query(1)
-    // 18-  2 = 16
-    return query(final)-query(inicio-1);
+
+    return query(final)-query(inicio-1);//nos dan un rango para sacar
 }
 
 int main() {
-    input;
-    int queries; 
-    cin>>tamanhoVector>>queries; 
+
+    int queries;
+    int tamanhoVector=6;
+    update(1,4);
+    update(2,5);
+    update(3,2);
+    update(4,2);
+    update(5,3);
+    cout<<query(3)<<endl;
+    cout<<query2(2,5)<<endl;
+    /*cin>>tamanhoVector>>queries;
+
     for(int i=0;i<tamanhoVector;i++) {
+
         int x;cin>>x;
+
         update(i+1, x);
     }
     for(int i =0 ;i<= tamanhoVector; i++){
+
         cout<<"["<< BIT[i]<<"]";
     }
     cout<<endl;
-   while(queries--) {
+
+    while(queries--) {
+
         int x,y; cin>>x>>y;
+
         cout<<query2(x,y)<<endl;
     }
-    return 0;
+    return 0;*/
 }

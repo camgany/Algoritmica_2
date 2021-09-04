@@ -60,13 +60,12 @@ int solveDP(int pos, int mayor, int pares) {
 
                 dp[pos][mayor][pares] += solveDP(pos+1, 1,pares + isPrime(digito)); 
 
-
             } else {
 
                 dp[pos][mayor][pares] += solveDP(pos+1, 0,pares + isPrime(digito)); 
+                
 
             }
-
 
 
         }
@@ -83,12 +82,12 @@ int main() {
 
     //Hallar los numeros que tengan 2 pares en su interior
 
-    int a = 20;
+    int a =200;
 
     number = to_string(a-1);
     memset(dp,-1, sizeof(dp));
     int paresHastaA = solveDP(0, 1, 0);
-    int b = 30;
+    int b = 220;
     memset(dp,-1, sizeof(dp));
     number = to_string(b);
     int paresHastaB = solveDP(0,1,0);

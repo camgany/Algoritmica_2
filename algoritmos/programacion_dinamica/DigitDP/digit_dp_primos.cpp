@@ -63,7 +63,7 @@ int main(){
     // hallar los numeros que tengan 2 pares en su interior del rango 20 hasta 30
 
     int  a = 1;
-    int b = 15;
+    int b = 10;
     // calculando f(a)
     number = to_string(a-1);
     memset(dp, -1, sizeof(dp));

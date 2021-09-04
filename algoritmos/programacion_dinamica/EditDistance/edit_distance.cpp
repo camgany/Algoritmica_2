@@ -6,6 +6,10 @@ string wordA,wordB;
 
 int dp[10000][10000];
 int solve(int posA, int posB) {
+    if(posA==posB) {
+
+        return 0;
+    }
     if(posA == 0){
         return posB;
     } 
