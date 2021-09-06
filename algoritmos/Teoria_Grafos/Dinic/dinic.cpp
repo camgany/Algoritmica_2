@@ -1,8 +1,3 @@
-/*
- Petar 'PetarV' Velickovic
- Algorithm: Dinic's Algorithm
-*/
-
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
@@ -100,7 +95,7 @@ inline int Dinic()
     while (true)
     {
         if (!BFS()) break;
-        for (int i=1;i<=v;i++) upTo[i] = 0;
+        for (int i=1;i<=v;i++) upTo[i] = 0;//peor caso, cuando cubra todos los vertices
         while (true)
         {
             int currFlow = DFS(s, INF);

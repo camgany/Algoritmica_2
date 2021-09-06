@@ -4,6 +4,7 @@
         "istream": "cpp",
         "ostream": "cpp",
         "shared_mutex": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "random": "cpp"
     }
 }
