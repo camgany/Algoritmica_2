@@ -1,7 +1,11 @@
-# Teoría de Grafos
-La teoría de grafos es una rama de las matemáticas y las ciencias de la computación que estudia las propiedades de los grafos.</br></br>
-La teoría de grafos tiene sus fundamentos en las matemáticas discretas y de las matemáticas aplicadas. Esta teoría requiere de diferentes conceptos de diversas áreas como combinatoria, álgebra, probabilidad, geometría de polígonos, aritmética y topología. Algunas de la aplicaciones que tiene especialente en el campo de la informática son el de la optimización de recorridos, optimización de procesos, flujos y algoritmos de búsquedas.</br></br>
-En la presente carpeta se encuentran distintos algoritmos acerca de la ***Teoría de Grafos***; además que en la misma se encuentran un archivo **README** donde se da una breve explicación del funcionamiento de cada algoritmo; se indica además el código base del mismo en distintos lenguajes de programación, algunos ejemplos de aplicación, incluyendo también enlaces a páginas web y videos que desarrollan más los conceptos de cada uno.
+# DINIC
+El algoritmo de Dinic es un algoritmo de Tiempo polinómico para la computación de un Flujo maximal en una red de flujo, concebida en 1970 por el científico de la computación Yefim Dinitz, israelí de origen soviético.1​ El algoritmo es ejecutado en un tiempo de {\displaystyle O(V^{2}E)}{\displaystyle O(V^{2}E)} y está basado en el Algoritmo de Edmonds-Karp, el cual a su vez se ejecuta en un tiempo {\displaystyle O(VE^{2})}{\displaystyle O(VE^{2})}, y utiliza trayectorias de aumento más cortas. La introducción de los conceptos nivel de grafo y bloqueo de flujo es lo que define el rendimiento del algoritmo de Dinic.
 
--  [Edmonds Karp](https://github.com/PaulLandaeta/algoritmica2/tree/master/contenido/Teoria%20de%20Grafos/Edmonds_Karp)
--  [Kruskal](https://github.com/PaulLandaeta/algoritmica2/tree/master/contenido/Teoria%20de%20Grafos/Kruskal)
+![dinic](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ-yisoekqmKK9-jJxiLxjOU_anCxALP6a1g&usqp=CAU)
+
+El algoritmo de Dinic fue publicado en 1970 por el ex ruso científico de la computación Yefim (Chaim) A. Dinitz , quien hoy es miembro del departamento de Ciencias de la Computación en Universidad Ben-Gurión del Néguev (Israel). Dicha publicación se realizó antes que la del algoritmo de Edmonds-Karp, el cual fue publicado en 1972, pero fue descubierta antes. Ambos demostraron cada uno por su cuenta, que en el algoritmo de Ford-Fulkerson, si cada ruta de aumento es la más corta, el largo de la ruta de aumento es no decreciente.
+
+![dinic2](https://iq.opengenus.org/content/images/2018/05/dinic.jpg)
+
+
+-  [Kruskal](https://github.com/camgany/Algoritmica_2/blob/main/algoritmos/Teoria_Grafos/Dinic/dinic.cpp) C++
